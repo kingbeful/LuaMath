@@ -69,6 +69,39 @@ print(matrix.scale(1,2,1)*b) -- output <2,4,0,1>
 print(matrix.rotate4z(math.pi/2)*b) -- output <-2,2,0,1>
 ```
 
+### OpenGL
+```lua
+-- create a perspective matrix
+local matproj = Mat.perspective(
+	60,                 -- Field of View
+	640/1136,           -- Aspect Ratio. width/height
+	0.1,                -- Near clipping plane
+	(1136/1.1566)*2)    -- Far clipping plane
+
+print(matproj)
+-- output
+--[[
+[ 3.1  0.0  0.0  0.0 ]
+[ 0.0  1.7  0.0  0.0 ]
+[ 0.0  0.0 -1.0 -0.2 ]
+[ 0.0  0.0 -1.0  0.0 ]
+--]]
+
+-- create a lookat matrix
+local matlookat = Mat.lookat(
+	vec3(320, 568, 1136/1.1566), -- Camera position
+	vec3(320, 568, 0),           -- Camera target, where your camera look at
+	vec3(0,1,0))                 -- Up vector
+
+print(matlookat)
+-- output
+--[[
+[ 1.0 -0.0  0.0 -320.0 ]
+[ 0.0  1.0  0.0 -568.0 ]
+[-0.0 -0.0  1.0 -982.2 ]
+[ 0.0  0.0  0.0  1.0 ]
+--]]
+```
 
 
 
