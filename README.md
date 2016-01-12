@@ -34,7 +34,7 @@ print(vector.cross3(v,u))  -- output <0,0,-200>
 
 ```lua
 vector = require 'Vector'
--- using the vec3
+-- using the vec4
 local vec4 = vector.vec4
 matrix = require 'Matrix'
 local mat4 = matrix.mat4
